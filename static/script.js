@@ -13,12 +13,15 @@ document.getElementById('advice-form').addEventListener('submit', async (e) => {
   });
 
 //   
-document.getElementById('advice-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+// document.getElementById('advice-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
   
     const adviceOutput = document.getElementById('advice-output');
-    adviceOutput.innerHTML = "<span class='typing'>Typing...</span>";
+    // Show the typing animation
+    adviceOutput.classList.add('typing');
+    adviceOutput.innerHTML = "Typing...";
   
+    // Simulate server delay with a fetch call
     const response = await fetch('/get_advice', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,9 +30,10 @@ document.getElementById('advice-form').addEventListener('submit', async (e) => {
   
     const data = await response.json();
   
-    // Add the typing effect before displaying the advice
+    // Remove the typing effect and show advice after a delay
     setTimeout(() => {
+      adviceOutput.classList.remove('typing');
       adviceOutput.innerHTML = data.advice;
-    }, 2000); // 2-second delay for typing effect
-  });
+    }, 2000); // Delay to show typing effect
+//   });
   
