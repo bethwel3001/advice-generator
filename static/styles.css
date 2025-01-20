@@ -1,12 +1,12 @@
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+ font-family: 'Comic Sans MS', cursive, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(-45deg, #ff4500, #ff6347, #4682b4, #f0f8ff);
+  background: linear-gradient(-45deg, #80e943, #a06358, #8e3a79, #f0f8ff);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
   color: #fff;
@@ -21,18 +21,38 @@ body {
 
   .container {
     margin-top: 50px;
+    animation: fadeIn 2s ease-in-out;
   }
   
   h1 {
     color: #ff4500;
     text-shadow: 2px 2px 4px #000;
+    animation: bounceIn 1.5s ease-in-out;
   }
   
+  /* Keyframes for animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes slideIn {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
   input[type="text"] {
     padding: 10px;
     width: 300px;
     border: 2px solid #ff4500;
     border-radius: 5px;
+    animation: slideIn 1s ease-in-out;
   }
   
   button {
@@ -42,6 +62,8 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    animation: slideIn 1s ease-in-out;
+
   }
   
   button:hover {
